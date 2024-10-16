@@ -1,0 +1,5 @@
+mkosi.local.conf
+mkosi.packages
+image
+image.*
+debian-tools

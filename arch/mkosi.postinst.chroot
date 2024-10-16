@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -eu
+
+pacman-key --init
+pacman-key --populate
