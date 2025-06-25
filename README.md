@@ -17,8 +17,8 @@ A recent version of *mkosi* is required, install this by issuing:
 pipx install -f git+https://github.com/systemd/mkosi.git
 ```
 
-Ensure your host OS is configured per the details in the **frequently asked
-questions** below.
+Ensure your host OS is configured per the details in the [Frequently asked
+questions](#Frequently-asked-questions) below.
 
 # Baking an image
 
