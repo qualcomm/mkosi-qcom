@@ -25,14 +25,14 @@ questions](#Frequently-asked-questions) below.
 Invoke *mkosi* with the **build** verb in order to build an image.
 
 ```
-mkosi -d <distro> [--devicetree <dtb>] [--profile <profile>] [-f] build
+mkosi -d <distro> [--devicetrees <dtb>] [--profile <profile>] [-f] build
 ```
 
 The **-d** argument can be used to select the distribution you want to build.
 The provided configuration supports **arch**, **debian**, **fedora**, **ubuntu**.
 
 Many Qualcomm boards does not come with upstream-compatible DeviceTree blobs
-loaded by UEFI, the **--devicetree** property can be provided, the DeviceTree
+loaded by UEFI, the **--devicetrees** property can be provided, the DeviceTree
 blob will be expected to be installed by selected packages for the
 distribution.
 
@@ -49,7 +49,7 @@ project, see note below on where in *mkosi.extra* to provide this.
 
 ## Example
 ```
-mkosi -d debian --devicetree qcom/qcs6490-rb3gen2.dtb --profile qcs6490-rb3gen2 -f build
+mkosi -d debian --devicetrees qcom/qcs6490-rb3gen2.dtb --profile qcs6490-rb3gen2 -f build
 ```
 *-f option will overwrite any previously baked image, instead of failing*
 
@@ -202,7 +202,7 @@ In the event that your board's UEFI implementation does not provide an upstream
 compliant Devicetree blob, you need to ensure the board's dtb file is loaded
 during boot - e.g. by systemd-boot.
 
-When baking the image, the *--devicetree* option provides the means for
+When baking the image, the *--devicetrees* option provides the means for
 selecting a DeviceTree blob from the installed packages. When installing the
 generated package into an existing installation, make sure that the generated
 *systemd-boot* loader entry contains the correct **devicetree** entry, or that
