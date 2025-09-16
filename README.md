@@ -158,10 +158,6 @@ The upstream Linux kernel community aims to maintain *defconfig* to the point
 where necessary hardware drivers for running the kernel on supported Qualcomm
 hardware are enabled by default.
 
-The Arm64 build system does however by default produce a compressed kernel
-image (zImage), which a standard UEFI system will not decompress. It's
-therefore necessary to manually enable the **CONFIG_EFI_ZBOOT** option.
-
 Kernel packages can then be built for the various distributions using below
 commands and copied into **mkosi.packages**. Note that the *Packages* list in
 relevant *mkosi.conf.d* config might need to be updated for the new package to
@@ -181,6 +177,13 @@ LLVM=1 ARCH=arm64 make -j99 O=debian bindeb-pkg
 ```
 LLVM=1 ARCH=arm64 make -j99 binrpm-pkg
 ```
+
+### Note on compression and UEFI
+
+The provided ***mkosi.conf*** does enable the packaging of the kernel and
+related parts into a UKI. If you disable this, you need to make sure that the
+kernel is uncompressed, or built with the **CONFIG_EFI_ZBOOT** option, as UEFI
+does not decompress the kernel.
 
 ## Managing DeviceTree for your kernel
 
