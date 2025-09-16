@@ -168,15 +168,26 @@ be selected.
 LLVM=1 ARCH=arm64 make -j99 pacman-pkg
 ```
 
+Copy the resulting **linux-upstream** files into *mkosi.packages* and make
+sure that **linux-upstream** is in the *Packages=* directive in
+*mkosi.conf.d/arch.conf*.
+
 ## Debian or Ubuntu
 ```
 LLVM=1 ARCH=arm64 make -j99 O=debian bindeb-pkg
 ```
 
+Copy the resulting **\*.deb** files into *mkosi.packages*. Use **dpkg-deb
+--into mkosi.packages ...** to acquire the **Package:** specifier of the kernel
+packet, then plug this into the *Packages=* directive in
+*mkosi.conf.d/debian.conf* or *mkosi.conf.d/ubuntu.conf*.
+
 ## Fedora
 ```
 LLVM=1 ARCH=arm64 make -j99 binrpm-pkg
 ```
+
+Copy **rpmbuild/RPMS/*.rpm** files into *mkosi.packages*.
 
 ### Note on compression and UEFI
 
