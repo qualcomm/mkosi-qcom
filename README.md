@@ -49,7 +49,7 @@ project, see note below on where in *mkosi.extra* to provide this.
 
 ## Example
 ```
-mkosi -d debian --devicetrees qcom/qcs6490-rb3gen2.dtb --profile qcs6490-rb3gen2 -f build
+mkosi -d debian --devicetrees qcom/qcs6490-rb3gen2.dtb --profile ufs -f build
 ```
 *-f option will overwrite any previously baked image, instead of failing*
 
@@ -147,7 +147,6 @@ Currently provided profiles are:
 | profile | Comments |
 | --- | --- |
 | ufs | General purpose profile to override the SectorSize config, as needed on UFS-based devices |
-| qcs6490-rb3gen2 | Override the SectorSize config and increase deferred_probe_timeout on kernel command line |
 
 Not all boards require a profile to be selected, e.g. SC8280XP and X1 Elite
 devices with NVMe storage works without this.
