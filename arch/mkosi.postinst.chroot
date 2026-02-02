@@ -4,3 +4,13 @@ set -eu
 
 pacman-key --init
 pacman-key --populate
+
+kver_dir=$(readlink -f /usr/lib/modules/*/)
+
+if [ \! -f "$kver_dir/vmlinuz" ]; then
+	ln -s ../../../../boot/Image $kver_dir/vmlinuz
+fi
+
+if [ \! -f "$kver_dir/dtbs" ]; then
+	ln -s ../../../../boot/dtbs $kver_dir/dtbs
+fi
