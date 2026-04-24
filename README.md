@@ -262,6 +262,25 @@ tools, and then builds the image in that container.
 Enable this by setting **ToolsTree=default** in the *Build* section of the
 config.
 
+## Missing key errors on an old Ubuntu install
+
+When using `ToolsTree=default`, mkosi defaults to using Debian as the
+intermediate build distro for Ubuntu hosts. Under certain circumstances,
+this may lead to key validation errors, such as:
+
+```
+Err:1 http://deb.debian.org/debian testing InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 6ED0E7B82643E131 NO_PUBKEY 78DBA3BC47EF2265
+```
+
+The quickest workaround is to change the tool distro to Ubuntu:
+
+```
+--- mkosi.conf
+[Build]
+ToolsTreeDistribution=ubuntu
+```
+
 ## $HOME is a network mount
 
 *mkosi* uses namespaces to set up Linux distribution to be built into the
