@@ -1,1 +1,3 @@
 enable NetworkManager.service
+disable systemd-networkd.service
+disable systemd-networkd-wait-online.service

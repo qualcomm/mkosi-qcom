@@ -124,7 +124,7 @@ experience of the built image.
 | file | Comments |
 | --- | --- |
 | 50-root.conf | Automatically extend the root partition (but not the file system) to cover the remainder of the disk |
-| 10-network-manager.preset | Make the NetworkManager systemd service launch automatically on boot (if present) |
+| 10-network-manager.preset | Enable NetworkManager and disable systemd-networkd services to avoid both stacks running at once |
 
 ### Runtime firmware
 
